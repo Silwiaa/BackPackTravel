@@ -1,7 +1,6 @@
 package com.backpacktravel.client.hotel;
 
 import lombok.RequiredArgsConstructor;
-import org.asynchttpclient.DefaultAsyncHttpClient;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
