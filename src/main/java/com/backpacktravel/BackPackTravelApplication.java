@@ -9,5 +9,4 @@ public class BackPackTravelApplication {
     public static void main(String[] args) {
         SpringApplication.run(BackPackTravelApplication.class, args);
     }
-
 }
