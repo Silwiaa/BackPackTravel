@@ -1,4 +1,4 @@
-package com.backpacktravel.domain;
+package com.backpacktravel.domain.airportDto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class DestinationDto {
+public class FlightParameterDto {
     private int adults;
     private String origin;
     private String destination;

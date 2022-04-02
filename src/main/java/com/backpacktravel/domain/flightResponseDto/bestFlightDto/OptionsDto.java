@@ -1,4 +1,4 @@
-package com.backpacktravel.domain;
+package com.backpacktravel.domain.flightResponseDto.bestFlightDto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
-import java.util.Map;
 
 @Data
 @AllArgsConstructor
@@ -22,6 +21,5 @@ public class OptionsDto {
     private String name;
 
     @JsonProperty("items")
-    private Map<Integer, Object> items;
-
+    private List<ItemDto> items;
 }

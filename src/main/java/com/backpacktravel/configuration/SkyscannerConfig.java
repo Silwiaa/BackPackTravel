@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SkyscannerConfig {
+
     @Value("${skyscanner.api.endpoint}")
     private String skyscannerApiEndpoint;
 
