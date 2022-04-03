@@ -12,9 +12,9 @@ import lombok.NoArgsConstructor;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CityDto {
 
-    @JsonProperty("name")
-    private String name;
-
     @JsonProperty("country")
     private String country;
+
+    @JsonProperty("name")
+    private String name;
 }

@@ -1,7 +1,7 @@
 package com.backpacktravel.service;
 
 import com.backpacktravel.client.CitiesCostOfLivingClient;
-import com.backpacktravel.domain.CityDetailsParameterDto;
+import com.backpacktravel.domain.CityDetailsByCoordinatesParameterDto;
 import com.backpacktravel.domain.cityDetailsResponseDto.CityDetailsResponseDto;
 import com.backpacktravel.domain.cityResponseDto.CityResponseDto;
 import com.backpacktravel.domain.currencyResponseDto.CurrencyResponseDto;
@@ -21,7 +21,7 @@ public class CitiesCostOfLivingService {
         return citiesCostOfLivingClient.getCurrency();
     }
 
-    public CityDetailsResponseDto fetchCitiesCostOfLivingCityDetails(CityDetailsParameterDto cityDetailsParameterDto) {
-        return citiesCostOfLivingClient.getCityDetails(cityDetailsParameterDto);
+    public CityDetailsResponseDto fetchCitiesCostOfLivingCityByCoordinatesDetails(CityDetailsByCoordinatesParameterDto cityDetailsByCoordinatesParameterDto) {
+        return citiesCostOfLivingClient.getCityDetailsByCoordinates(cityDetailsByCoordinatesParameterDto);
     }
 }

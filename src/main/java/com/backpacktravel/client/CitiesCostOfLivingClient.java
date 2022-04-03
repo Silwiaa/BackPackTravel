@@ -2,7 +2,7 @@ package com.backpacktravel.client;
 
 import com.backpacktravel.builder.Url;
 import com.backpacktravel.configuration.CitiesCostOfLivingConfig;
-import com.backpacktravel.domain.CityDetailsParameterDto;
+import com.backpacktravel.domain.CityDetailsByCoordinatesParameterDto;
 import com.backpacktravel.domain.cityDetailsResponseDto.CityDetailsResponseDto;
 import com.backpacktravel.domain.cityResponseDto.CityResponseDto;
 import com.backpacktravel.domain.currencyResponseDto.CurrencyResponseDto;
@@ -69,10 +69,10 @@ public class CitiesCostOfLivingClient {
         }
     }
 
-    public CityDetailsResponseDto getCityDetails(CityDetailsParameterDto cityDetailsParameterDto) {
+    public CityDetailsResponseDto getCityDetailsByCoordinates(CityDetailsByCoordinatesParameterDto cityDetailsByCoordinatesParameterDto) {
         Url urlService = new Url.UrlBuilder()
                 .apiEndpoint(citiesCostOfLivingConfig.getCitiesCostOfLivingApiEndpoint())
-                .value("/get_cities_details_by_name")
+                .value("/get_cities_details_by_coordinates")
                 .build();
 
         String url = urlService.toString();
@@ -82,14 +82,15 @@ public class CitiesCostOfLivingClient {
         headers.set("X-RapidAPI-Host", citiesCostOfLivingConfig.getCitiesCostOfLivingHost());
         headers.set("X-RapidAPI-Key", citiesCostOfLivingConfig.getCitiesCostOfLivingKey());
 
-        MultiValueMap<String, Object> params = new LinkedMultiValueMap<String, Object>();
-        params.add("cities", cityDetailsParameterDto.getCities().get(0));
-        params.add("currencies", cityDetailsParameterDto.getCurrencies());
+        MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
+        params.add("latitude", Double.toString(cityDetailsByCoordinatesParameterDto.getLatitude()));
+        params.add("longitude", Double.toString(cityDetailsByCoordinatesParameterDto.getLongitude()));
+        params.add("currencies", cityDetailsByCoordinatesParameterDto.getCurrencies().get(0));
 
         System.out.println(params);
 
-        HttpEntity<MultiValueMap<String, Object>> request = new HttpEntity<MultiValueMap<String, Object>>(params, headers);
-
+        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(params, headers);
+        System.out.println(request);
         MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
         mappingJackson2HttpMessageConverter.setSupportedMediaTypes(Collections.singletonList(MediaType.APPLICATION_FORM_URLENCODED));
         restTemplate.getMessageConverters().add(mappingJackson2HttpMessageConverter);
