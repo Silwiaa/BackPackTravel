@@ -4,7 +4,6 @@ import com.backpacktravel.builder.Url;
 import com.backpacktravel.configuration.CitiesCostOfLivingConfig;
 import com.backpacktravel.domain.CityDetailsParameterDto;
 import com.backpacktravel.domain.cityDetailsResponseDto.CityDetailsResponseDto;
-import com.backpacktravel.domain.cityResponseDto.CityDto;
 import com.backpacktravel.domain.cityResponseDto.CityResponseDto;
 import com.backpacktravel.domain.currencyResponseDto.CurrencyResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -18,10 +17,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
-import java.util.Map;
 
 @Component
 @RequiredArgsConstructor
@@ -87,8 +83,10 @@ public class CitiesCostOfLivingClient {
         headers.set("X-RapidAPI-Key", citiesCostOfLivingConfig.getCitiesCostOfLivingKey());
 
         MultiValueMap<String, Object> params = new LinkedMultiValueMap<String, Object>();
-        params.add("cities", cityDetailsParameterDto.getCities());
+        params.add("cities", cityDetailsParameterDto.getCities().get(0));
         params.add("currencies", cityDetailsParameterDto.getCurrencies());
+
+        System.out.println(params);
 
         HttpEntity<MultiValueMap<String, Object>> request = new HttpEntity<MultiValueMap<String, Object>>(params, headers);
 

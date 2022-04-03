@@ -6,17 +6,10 @@ import com.backpacktravel.domain.cityResponseDto.CityResponseDto;
 import com.backpacktravel.domain.currencyResponseDto.CurrencyResponseDto;
 import com.backpacktravel.facade.CitiesCostOfLivingFacade;
 import com.backpacktravel.mapper.CitiesCostOfLivingMapper;
-import jdk.jfr.ContentType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.awt.*;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -36,7 +29,7 @@ public class CitiesCostOfLivingController {
         return ResponseEntity.ok(citiesCostOfLivingFacade.fetchCitiesCostOfLivingCurrency());
     }
 
-    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CityDetailsResponseDto> getCitiesCostOfLivingCityDetails(@RequestBody CityDetailsParameterDto cityDetailsParameterDto) {
         return ResponseEntity.ok(citiesCostOfLivingFacade.fetchCitiesCostOfLivingCityDetails(cityDetailsParameterDto));
     }
