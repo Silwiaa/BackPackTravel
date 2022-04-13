@@ -1,6 +1,6 @@
 package com.backpacktravel.builder;
 
-import com.backpacktravel.domain.ParameterDto;
+import com.backpacktravel.dto.ParameterDto;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,14 +1,9 @@
 package com.backpacktravel.facade;
 
-import com.backpacktravel.domain.FlightParameterDto;
-import com.backpacktravel.domain.HotelParameterDto;
-import com.backpacktravel.domain.RentACarParameterDto;
-import com.backpacktravel.domain.airportDto.AirportDto;
-import com.backpacktravel.domain.flightResponseDto.FlightResponseDto;
-import com.backpacktravel.domain.hotelResponseDto.HotelResponseDto;
-import com.backpacktravel.domain.locationHotelDto.LocationHotelDto;
-import com.backpacktravel.domain.locationRentACar.LocationRentACarDto;
-import com.backpacktravel.domain.rentACarResponseDto.RentACarResponseDto;
+import com.backpacktravel.dto.airportDto.AirportDto;
+import com.backpacktravel.dto.flightResponseDto.BestFlightDto;
+import com.backpacktravel.dto.locationRentACar.LocationRentACarDto;
+import com.backpacktravel.dto.rentACarResponseDto.RentACarResponseDto;
 import com.backpacktravel.service.SkyscannerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -24,23 +19,15 @@ public class SkyscannerFacade {
         return skyscannerService.fetchSkyscannerAirports(airport);
     }
 
-    public FlightResponseDto fetchSkyscannerFlight(FlightParameterDto destinationDto, boolean isBest) {
-        return skyscannerService.fetchSkyscannerBestFlight(destinationDto, isBest);
-    }
-
-    public List<LocationHotelDto> fetchSkyscannerLocationsHotel(String location) {
-        return skyscannerService.fetchSkyscannerLocationsHotel(location);
-    }
-
-    public HotelResponseDto fetchSkyscannerHotel(HotelParameterDto hotelParameterDto) {
-        return skyscannerService.fetchSkyscannerHotel(hotelParameterDto);
+    public BestFlightDto fetchSkyscannerBestFlights(String flightDetails) {
+        return skyscannerService.fetchSkyscannerBestFlights(flightDetails);
     }
 
     public List<LocationRentACarDto> fetchSkyscannerLocationsRentACar(String location) {
         return skyscannerService.fetchSkyscannerLocationsRentACar(location);
     }
 
-    public RentACarResponseDto fetchSkyscannerRentACar(RentACarParameterDto rentACarParameterDto) {
-        return skyscannerService.fetchSkyscannerRentACar(rentACarParameterDto);
+    public RentACarResponseDto fetchSkyscannerRentACar(String rentACarDetails) {
+        return skyscannerService.fetchSkyscannerRentACar(rentACarDetails);
     }
 }

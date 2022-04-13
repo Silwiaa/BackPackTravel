@@ -6,12 +6,11 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Getter
 @Component
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class SkyscannerConfig {
-
     @Value("${skyscanner.api.endpoint}")
     private String skyscannerApiEndpoint;
 
