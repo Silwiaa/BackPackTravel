@@ -28,7 +28,6 @@ public class CountriesCitiesClient {
                 .build();
 
         String url = urlService.toString();
-        System.out.println("Url: " + url);
         HttpEntity request = createRequest("X-RapidAPI-Host", "X-RapidAPI-Key");
 
         try {
@@ -50,7 +49,6 @@ public class CountriesCitiesClient {
                 .build();
 
         String url = urlService.toString();
-        System.out.println("Url: " + url);
         HttpEntity request = createRequest("X-RapidAPI-Host", "X-RapidAPI-Key");
 
         try {
